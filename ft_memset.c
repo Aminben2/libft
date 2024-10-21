@@ -6,9 +6,11 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:01:28 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/21 21:13:51 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/21 21:41:34 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, int len)
 {
