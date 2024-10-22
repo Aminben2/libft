@@ -6,9 +6,11 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:01:06 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/22 19:02:25 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:03:43 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libc.h"
 
 char	ft_tolower(char c)
 {
