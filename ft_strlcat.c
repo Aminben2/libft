@@ -6,13 +6,15 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 20:31:30 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/23 21:30:24 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/23 22:13:56 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-unsigned int ft_strlcat(char *dst, const char *src, unsigned int dsize)
+unsigned int ft_strlcat(char *dst, char *src, int dsize)
 {
     int dest_len;
     int src_len;
