@@ -131,3 +131,47 @@ int main(void)
 }
 
 // ---------------------------------------------------------------------------
+
+#include <stdio.h>
+#include <string.h>
+
+void test_ft_memchr(const void *s, int c, unsigned int n)
+{
+    void *result = ft_memchr(s, c, n);
+    void *expected = memchr(s, c, n);
+
+    if (result == expected)
+    {
+        printf("Test passed for string \"%s\" and character '%c' in first %u bytes\n", (char *)s, (char)c, n);
+    }
+    else
+    {
+        printf("Test failed for string \"%s\" and character '%c' in first %u bytes\n", (char *)s, (char)c, n);
+        printf("  ft_memchr result: %s\n", result ? (char *)result : "NULL");
+        printf("  memchr result: %s\n", expected ? (char *)expected : "NULL");
+    }
+}
+
+int main(void)
+{
+    // Test cases
+    const char *str1 = "Hello, world!";
+    test_ft_memchr(str1, 'o', 13);   // Test for character in the string
+    test_ft_memchr(str1, 'x', 13);   // Test for character not in the string
+    test_ft_memchr(str1, '!', 13);   // Test for last character
+    test_ft_memchr(str1, 'H', 13);   // Test for first character
+    test_ft_memchr(str1, 'l', 5);    // Test within a limited range (should find 'l')
+    test_ft_memchr(str1, 'l', 2);    // Test within a limited range (should not find 'l')
+    test_ft_memchr(str1, '\0', 13);  // Test for null terminator
+
+    const char *str2 = "abcdef";
+    test_ft_memchr(str2, 'c', 6);    // Test for middle character
+    test_ft_memchr(str2, 'a', 6);    // Test for first character
+    test_ft_memchr(str2, 'f', 6);    // Test for last character
+    test_ft_memchr(str2, 'g', 6);    // Test for character not in the string
+
+    return 0;
+}
+
+// ----------------------------------------------------------------------------
+
