@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:32:34 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 20:20:12 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:07:02 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char *ft_strchr(const char *s, int c)
             return ((char *)&s[i]);
         i++;
     }
-    return (0);
+    return (NULL);
 }
 
