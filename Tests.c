@@ -175,3 +175,26 @@ int main(void)
 
 // ----------------------------------------------------------------------------
 
+int main(void)
+{
+    // Test cases
+    const char *str1 = "Hello";
+    const char *str2 = "Hello";
+    const char *str3 = "Hello!";
+    const char *str4 = "Hello, world!";
+    const char *str5 = "hellO";
+
+    test_ft_memcmp(str1, str2, 5); // Identical strings
+    test_ft_memcmp(str1, str3, 5); // Identical prefix
+    test_ft_memcmp(str1, str3, 6); // Different length (last character is different)
+    test_ft_memcmp(str1, str4, 5); // Different length (str4 is longer)
+    test_ft_memcmp(str1, str5, 5); // Different case
+    test_ft_memcmp(str1, str5, 4); // Same prefix (should be equal)
+
+    const char *str6 = "abcdef";
+    const char *str7 = "abcdeg";
+    test_ft_memcmp(str6, str7, 5); // Check first 5 characters (should be equal)
+    test_ft_memcmp(str6, str7, 6); // Check all characters (last one differs)
+
+    return 0;
+}

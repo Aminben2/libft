@@ -6,12 +6,14 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/23 22:34:46 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:59:11 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#include <stdlib.h>
 
 void	ft_bzero(void *s, int n);
 int		ft_isalnum(char c);

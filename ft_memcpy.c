@@ -6,11 +6,11 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:48:49 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/22 18:44:34 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 08:59:51 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, unsigned int n)
 {
