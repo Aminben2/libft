@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 20:33:31 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:46:15 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ size_t ft_strlen(const char *s);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 char *ft_strrchr(const char *s, int c);
+char *ft_strdup(const char *s);
 
 #endif
