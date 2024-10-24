@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 22:41:15 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 19:55:12 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:22:37 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    unsigned int i;
+    size_t i;
     const unsigned char *new_s1;
     const unsigned char *new_s2;
 
@@ -30,23 +30,4 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
         i++;
     }
     return (0);
-}
-#include <stdio.h>
-#include <string.h>
-
-void test_ft_memcmp(const void *s1, const void *s2, unsigned int n)
-{
-    int result = ft_memcmp(s1, s2, n);
-    int expected = memcmp(s1, s2, n);
-
-    if (result == expected)
-    {
-        printf("Test passed for s1: \"%s\", s2: \"%s\", n: %u\n", (char *)s1, (char *)s2, n);
-    }
-    else
-    {
-        printf("Test failed for s1: \"%s\", s2: \"%s\", n: %u\n", (char *)s1, (char *)s2, n);
-        printf("  ft_memcmp result: %d\n", result);
-        printf("  memcmp result: %d\n", expected);
-    }
 }

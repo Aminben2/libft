@@ -1,28 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:07:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 20:24:28 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/24 19:57:38 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/24 19:57:39 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t ft_strlcpy(char *dst, const char *src, size_t dsize)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < dsize - 1 && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (dsize > 0)
-		dst[i] = "\0";
-	return ft_strlen(src);
-}

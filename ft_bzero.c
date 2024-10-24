@@ -6,16 +6,14 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:29:11 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/21 21:43:42 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:59:25 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+void bzero(void *s, size_t n)
 {
-	int	i;
-
 	if (n > 0)
 	{
 		ft_memset(s, 0, n);
