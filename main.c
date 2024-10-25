@@ -1,69 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include "libft.h"
 
-char **ft_split(const char *str, char c); // Prototype for ft_split
-
-void run_test(const char *description, const char *str, char delimiter, char **expected)
+void run_test(const char *s1, const char *set, const char *expected)
 {
-    printf("%s\n", description);
-    printf("Input: \"%s\", delimiter: '%c'\n", str ? str : "NULL", delimiter);
-
-    char **result = ft_split(str, delimiter);
-
-    // Compare result with expected
-    if (result == NULL && expected == NULL)
+    char *result = ft_strtrim(s1, set);
+    if (result)
     {
-        printf("Test passed!\n");
-    }
-    else if (result && expected)
-    {
-        int i = 0;
-        while (result[i] || expected[i])
-        { // Continue until both are NULL
-            if ((result[i] == NULL && expected[i] != NULL) ||
-                (result[i] != NULL && expected[i] == NULL) ||
-                (strcmp(result[i], expected[i]) != 0))
-            {
-                printf("Test failed.\n");
-                break;
-            }
-            i++;
+        if (strcmp(result, expected) == 0)
+        {
+            printf("Test passed: ft_strtrim(\"%s\", \"%s\") = \"%s\"\n", s1, set, result);
         }
-        printf("Test passed!\n");
+        else
+        {
+            printf("Test failed: ft_strtrim(\"%s\", \"%s\") = \"%s\", expected \"%s\"\n", s1, set, result, expected);
+        }
+        free(result); // Free the allocated memory for the result
     }
     else
     {
-        printf("Test failed.\n");
-    }
-
-    // Free the result strings and the array
-    if (result)
-    {
-        for (int j = 0; result[j]; j++)
-        {
-            free(result[j]);
-        }
-        free(result);
+        printf("Test failed: ft_strtrim(\"%s\", \"%s\") returned NULL\n", s1, set);
     }
 }
 
 int main()
 {
-    // Run test cases
-    run_test("Normal Case with Multiple Words", "Hello World", ' ', (char *[]){"Hello", "World", NULL});
-    run_test("Leading and Trailing Whitespace", "   Hello   World   ", ' ', (char *[]){"Hello", "World", NULL});
-    run_test("Multiple Consecutive Whitespace Characters", "Hello    World", ' ', (char *[]){"Hello", "World", NULL});
-    run_test("Empty String", "", ' ', (char *[]){NULL});
-    run_test("String with Only Whitespace", "     ", ' ', (char *[]){NULL});
-    run_test("Single Word Without Whitespace", "Hello", ' ', (char *[]){"Hello", NULL});
-    run_test("String with Different Whitespace Characters", "\tHello\nWorld\r!", '\0', (char *[]){"Hello", "World", "!", NULL});
-    run_test("Multiple Words with Tabs as Delimiter", "Hello\tWorld", '\t', (char *[]){"Hello", "World", NULL});
-    run_test("String with a Single Character Delimiter", "H,e,l,l,o", ',', (char *[]){"H", "e", "l", "l", "o", NULL});
-    run_test("String with Mixed Delimiters", "Hello,  World\tthis is   a test.", ' ', (char *[]){"Hello,", "World", "this", "is", "a", "test.", NULL});
-    run_test("Special Characters", "Hello! @World#", ' ', (char *[]){"Hello!", "@World#", NULL});
-    run_test("Long String Input", "This is a longer string with multiple words", ' ', (char *[]){"This", "is", "a", "longer", "string", "with", "multiple", "words", NULL});
-    run_test("NULL Input", NULL, ' ', NULL);
+    // Test cases
+    run_test("   Hello, World!   ", " ", "Hello, World!"); // Trimming spaces
+    run_test("!!!Hello!!!", "!", "Hello");                 // Trimming exclamation marks
+    run_test("abcabc", "abc", "");                         // Trimming all characters
+    run_test("", "abc", "");                               // Empty input string
+    run_test("   ", " ", "");                              // Input with only spaces
+    run_test("Hello", " ", "Hello");                       // No trimming needed
+    run_test("   Hello World   ", " HW", "ello World");    // Trim multiple characters
+    run_test("12345", "6789", "12345");                    // No characters to trim
+    run_test("abcdeabc", "abc", "d");                      // Trim leading and trailing 'abc'
+    run_test("   ", " ", "");                              // Full string trim
+    run_test("   Hello World!   ", " !", "Hello World");   // Trim spaces and exclamation marks
 
     return 0;
 }
