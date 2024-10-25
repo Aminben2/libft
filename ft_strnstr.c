@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:07:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 20:24:28 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/24 19:57:38 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/24 21:42:51 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dsize)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
-	size_t	i;
+    size_t i;
+    size_t j;
 
-	i = 0;
-	while (i < dsize - 1 && src[i])
+    if (to_find[0] == '\0')
+		return ((char *)str);
+    i = 0;
+    while (str[i] && i < len)
 	{
-		dst[i] = src[i];
+		j = 0;
+		while (str[i + j] == to_find[j] && to_find[j] && (i + j) < len)
+			j++;
+        if (to_find[j] == '\0')
+            return ((char *)&str[i]);
 		i++;
 	}
-	if (dsize > 0)
-		dst[i] = "\0";
-	return ft_strlen(src);
+    return (NULL);
 }
+

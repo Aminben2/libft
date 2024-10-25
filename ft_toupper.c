@@ -6,13 +6,13 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:58:59 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/22 19:30:51 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/25 15:10:49 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_toupper(char c)
+char	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
