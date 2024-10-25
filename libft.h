@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/25 16:43:44 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/25 17:53:14 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 char *ft_strrchr(const char *s, int c);
 char *ft_strdup(const char *s);
+char **ft_split(char const *s, char c);
+char *ft_substr(char const *s, unsigned int start,size_t len);
+void *ft_calloc(size_t count, size_t size);
 
 #endif

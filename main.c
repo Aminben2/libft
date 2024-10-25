@@ -2,47 +2,68 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *ft_strjoin(char const *s1, char const *s2); // Prototype for ft_strjoin
+char **ft_split(const char *str, char c); // Prototype for ft_split
 
-void run_test(const char *description, const char *s1, const char *s2, const char *expected) {
+void run_test(const char *description, const char *str, char delimiter, char **expected)
+{
     printf("%s\n", description);
-    printf("Input s1: \"%s\", s2: \"%s\"\n", s1 ? s1 : "NULL", s2 ? s2 : "NULL");
+    printf("Input: \"%s\", delimiter: '%c'\n", str ? str : "NULL", delimiter);
 
-    char *result = ft_strjoin(s1, s2);
-    printf("Expected: \"%s\"\n", expected ? expected : "NULL");
-    printf("Result: \"%s\"\n", result ? result : "NULL");
+    char **result = ft_split(str, delimiter);
 
-    if ((result == NULL && expected == NULL) || (result && expected && strcmp(result, expected) == 0)) {
-        printf("Test passed!\n\n");
-    } else {
-        printf("Test failed.\n\n");
+    // Compare result with expected
+    if (result == NULL && expected == NULL)
+    {
+        printf("Test passed!\n");
+    }
+    else if (result && expected)
+    {
+        int i = 0;
+        while (result[i] || expected[i])
+        { // Continue until both are NULL
+            if ((result[i] == NULL && expected[i] != NULL) ||
+                (result[i] != NULL && expected[i] == NULL) ||
+                (strcmp(result[i], expected[i]) != 0))
+            {
+                printf("Test failed.\n");
+                break;
+            }
+            i++;
+        }
+        printf("Test passed!\n");
+    }
+    else
+    {
+        printf("Test failed.\n");
     }
 
-    free(result);
+    // Free the result strings and the array
+    if (result)
+    {
+        for (int j = 0; result[j]; j++)
+        {
+            free(result[j]);
+        }
+        free(result);
+    }
 }
 
-int main() {
-    // Test Case 1: Normal strings
-    run_test("Concatenating two normal strings", "Hello, ", "world!", "Hello, world!");
-
-    // Test Case 2: s1 is an empty string
-    run_test("s1 is an empty string", "", "world!", "world!");
-
-    // Test Case 3: s2 is an empty string
-    run_test("s2 is an empty string", "Hello, ", "", "Hello, ");
-
-    // Test Case 4: Both s1 and s2 are empty strings
-    run_test("Both s1 and s2 are empty strings", "", "", "");
-
-    // Test Case 5: s1 is NULL
-    run_test("s1 is NULL", NULL, "world!", NULL);
-
-    // Test Case 6: s2 is NULL
-    run_test("s2 is NULL", "Hello, ", NULL, NULL);
-
-    // Test Case 7: Both s1 and s2 are NULL
-    run_test("Both s1 and s2 are NULL", NULL, NULL, NULL);
+int main()
+{
+    // Run test cases
+    run_test("Normal Case with Multiple Words", "Hello World", ' ', (char *[]){"Hello", "World", NULL});
+    run_test("Leading and Trailing Whitespace", "   Hello   World   ", ' ', (char *[]){"Hello", "World", NULL});
+    run_test("Multiple Consecutive Whitespace Characters", "Hello    World", ' ', (char *[]){"Hello", "World", NULL});
+    run_test("Empty String", "", ' ', (char *[]){NULL});
+    run_test("String with Only Whitespace", "     ", ' ', (char *[]){NULL});
+    run_test("Single Word Without Whitespace", "Hello", ' ', (char *[]){"Hello", NULL});
+    run_test("String with Different Whitespace Characters", "\tHello\nWorld\r!", '\0', (char *[]){"Hello", "World", "!", NULL});
+    run_test("Multiple Words with Tabs as Delimiter", "Hello\tWorld", '\t', (char *[]){"Hello", "World", NULL});
+    run_test("String with a Single Character Delimiter", "H,e,l,l,o", ',', (char *[]){"H", "e", "l", "l", "o", NULL});
+    run_test("String with Mixed Delimiters", "Hello,  World\tthis is   a test.", ' ', (char *[]){"Hello,", "World", "this", "is", "a", "test.", NULL});
+    run_test("Special Characters", "Hello! @World#", ' ', (char *[]){"Hello!", "@World#", NULL});
+    run_test("Long String Input", "This is a longer string with multiple words", ' ', (char *[]){"This", "is", "a", "longer", "string", "with", "multiple", "words", NULL});
+    run_test("NULL Input", NULL, ' ', NULL);
 
     return 0;
 }
-

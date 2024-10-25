@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:32:34 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 21:07:02 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/25 18:11:36 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char *ft_strchr(const char *s, int c)
     size_t i;
     size_t len;
 
+    if (!s)
+        return (NULL);
     i = 0;
     len = ft_strlen(s);
     while (i <= len)
