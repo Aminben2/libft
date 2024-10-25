@@ -6,13 +6,13 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:01:28 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/21 21:41:34 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:29:22 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, int len)
+void	*ft_memset(void *b, int c, unsigned int len)
 {
 	int	i;
 
