@@ -6,13 +6,13 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:29:11 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 19:59:25 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:43:27 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	if (n > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/24 21:46:15 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:43:44 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <stdlib.h>
 
-void bzero(void *s, size_t n);
+void	ft_bzero(void *s, size_t n);
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);
 int	ft_isascii(int c);
