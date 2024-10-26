@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 16:35:28 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 17:29:15 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,10 @@ void ft_putchar_fd(char c, int fd);
 void ft_putstr_fd(char *s, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
+typedef struct s_list
+{
+    void           *content;
+    struct s_list   *next;
+} t_list;
 
 #endif
