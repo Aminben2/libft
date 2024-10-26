@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 19:57:38 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 16:19:32 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/26 16:41:09 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/26 16:55:08 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void ft_putnbr_fd(int n, int fd)
 {
-    size_t i;
-    size_t j;
+    long num;
 
-    if (!str || !to_find)
-        return (NULL);
-    if (to_find[0] == '\0')
-		return ((char *)str);
-    i = 0;
-    while (str[i] && i < len)
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && to_find[j] && (i + j) < len)
-			j++;
-        if (to_find[j] == '\0')
-            return ((char *)&str[i]);
-		i++;
-	}
-    return (NULL);
+    num = n;
+    if (num < 0)
+    {
+        ft_putchar_fd('-', fd);
+        num *= -1;
+    }
+    if (num >= 10)
+        ft_putnbr_fd(num / 10, fd);
+    ft_putchar_fd(num % 10 + '0', fd);
 }
-

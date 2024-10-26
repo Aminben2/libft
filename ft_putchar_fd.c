@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 19:57:38 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 16:19:32 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/26 16:35:49 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/26 16:36:16 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t len)
+void ft_putchar_fd(char c, int fd)
 {
-    size_t i;
-    size_t j;
-
-    if (!str || !to_find)
-        return (NULL);
-    if (to_find[0] == '\0')
-		return ((char *)str);
-    i = 0;
-    while (str[i] && i < len)
-	{
-		j = 0;
-		while (str[i + j] == to_find[j] && to_find[j] && (i + j) < len)
-			j++;
-        if (to_find[j] == '\0')
-            return ((char *)&str[i]);
-		i++;
-	}
-    return (NULL);
+    write(fd, &c, 1);
 }
-
