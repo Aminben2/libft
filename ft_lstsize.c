@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 21:45:09 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:04:53 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/26 18:37:31 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/26 19:22:19 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char	*ft_strdup(const char *s)
+int ft_lstsize(t_list *lst)
 {
-	size_t len;
-	size_t i;
-	char *new_s;
+    int i;
 
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s) + 1;
-	new_s = malloc(len);
-	if (!new_s)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		new_s[i] = s[i];
-		i++;
-	}
-	new_s[i] = '\0';
-	return (new_s);
+    i = 0;
+    while (lst)
+    {
+        i++;
+        lst = lst->next;
+    }
+    return (i);
 }
+
+// int main(void)
+// {
+//     t_list *node = ft_lstnew("amine");
+//     t_list *node1 = ft_lstnew("ben");
+//     t_list *node2 = ft_lstnew("yasine");
+
+//     node->next = node1;
+//     node->next->next = node2;
+
+//     printf("%d",ft_lstsize(node));
+//     return (0);
+// }
+
