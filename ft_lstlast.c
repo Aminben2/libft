@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 18:37:31 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:22:55 by mbenomar         ###   ########.fr       */
+/*   Created: 2024/10/26 19:24:46 by mbenomar          #+#    #+#             */
+/*   Updated: 2024/10/26 20:14:17 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	i;
+	if (!lst)
+        return (NULL);
 
-	i = 0;
-	while (lst)
-	{
-		i++;
-		lst = lst->next;
-	}
-	return (i);
+    while (lst->next)
+    {
+        lst = lst->next;
+    }
+    return (lst);
 }
 
 // int main(void)
 // {
-//     t_list *node = ft_lstnew("amine");
+//     t_list *head = ft_lstnew("amine");
 //     t_list *node1 = ft_lstnew("ben");
-//     t_list *node2 = ft_lstnew("yasine");
+//     t_list *node2 = ft_lstnew("yassine");
+//     t_list *node3 = ft_lstnew("salim");
 
-//     node->next = node1;
-//     node->next->next = node2;
-
-//     printf("%d",ft_lstsize(node));
+//     head->next = node1;
+//     head->next->next = node2;
+//     head->next->next->next = node3;
+//     printf("%s",ft_lstlast(head)->content);
 //     return (0);
 // }

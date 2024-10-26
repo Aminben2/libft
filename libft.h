@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:06:03 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 19:24:30 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ typedef struct s_list
 
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
-
+void				ft_lstadd_front(t_list **lst, t_list *new);
+t_list				*ft_lstlast(t_list *lst);
 #endif
