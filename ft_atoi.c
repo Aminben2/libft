@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:59:31 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/25 15:19:06 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 11:24:59 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_atoi(const char *nptr)
 {
-    int number;
+    unsigned long number;
     int i;
     int sign;
 
@@ -31,8 +31,11 @@ int ft_atoi(const char *nptr)
     }
     while (nptr[i] >= '0' && nptr[i] <= '9')
     {
-        number *= 10;
-        number += nptr[i] - '0';
+        
+        if (number > 9223372036854775807 && sign == 1)
+            return (0);
+        if (number > 9223372036854775807 && sign == -1)
+            return (-1);
         i++;
     }
     return (number * sign);

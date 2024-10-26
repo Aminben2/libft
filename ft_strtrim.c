@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:56:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 09:57:43 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 12:40:45 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ char *ft_strtrim(const char *str, const char *set)
         return (NULL);
     start = ft_mark_start(str, set);
     end = ft_mark_end(str, set);
-    printf("%d\n", end);
     return (ft_substr(str, start, end - start + 1));
 }
