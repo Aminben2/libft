@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:56:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/25 21:46:24 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 09:57:43 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@ static int ft_haschar(const char *str, char c)
 static int ft_mark_end(const char *str, const char *set)
 {
     size_t str_len;
+    size_t index;
 
     str_len = ft_strlen(str);
-    while (str_len - 1 > 0)
+    index = str_len - 1;
+    while (index >= 0)
     {
-        if (ft_haschar(set, str[str_len]))
-            str_len--;
+        if (ft_haschar(set, str[index]))
+            index--;
         else
-            return (str_len);
+            return (index);
     }
-    return (-1);
+    return (str_len - 1);
 }
 
 static int ft_mark_start(const char *str, const char *set)
@@ -53,7 +55,7 @@ static int ft_mark_start(const char *str, const char *set)
         else
             return (i);
     }
-    return (-1);
+    return (0);
 }
 
 char *ft_strtrim(const char *str, const char *set)
@@ -65,7 +67,6 @@ char *ft_strtrim(const char *str, const char *set)
         return (NULL);
     start = ft_mark_start(str, set);
     end = ft_mark_end(str, set);
-    if (start != -1 && end != -1)
-        return (ft_substr(str, start, end - start + 1));
-    return ((char *)str);
+    printf("%d\n", end);
+    return (ft_substr(str, start, end - start + 1));
 }
