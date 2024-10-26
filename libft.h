@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:37:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 12:41:41 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:32:17 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ char *ft_substr(char const *s, unsigned int start,size_t len);
 void *ft_calloc(size_t count, size_t size);
 char *ft_strtrim(const char *str, const char *set);
 char *ft_itoa(int n);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif
