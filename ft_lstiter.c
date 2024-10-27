@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 11:04:57 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 11:56:45 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 13:08:57 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 //         new++;
 //     }
 // }
+
 // void printf_linkedlist(t_list *lst)
 // {
 //     if (!lst)
