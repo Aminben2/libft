@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:07:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:05:09 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:46:32 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dsize)
 {
-	size_t i;
+	size_t	i;
 
 	if (dsize == 0)
 		return (ft_strlen(src));

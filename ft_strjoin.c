@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:23:38 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:05:02 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:46:14 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
-	char *str;
-	size_t total;
+	char	*str;
+	size_t	total;
 
 	if (!s1 || !s2)
 		return (NULL);

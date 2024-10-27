@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:56:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:05:44 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 14:47:51 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static int	ft_mark_start(const char *str, const char *set)
 
 char	*ft_strtrim(const char *str, const char *set)
 {
-	int start;
-	int end;
+	int	start;
+	int	end;
 
 	if (!str || !set)
 		return (NULL);
