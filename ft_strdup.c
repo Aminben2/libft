@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 21:45:09 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 14:44:02 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:24:19 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 	char	*new_s;
 
-	if (!s)
-		return (NULL);
 	len = ft_strlen(s) + 1;
 	new_s = malloc(len);
 	if (!new_s)

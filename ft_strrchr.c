@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 22:03:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:05:40 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:19:38 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,9 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
+// int main(void)
+// {
+// 	printf("|%s|\n",strrchr("",'\0'));
+// 	printf("|%s|\n",ft_strrchr("",'\0'));
+// 	return 0;
+// }

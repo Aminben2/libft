@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 19:57:38 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 19:05:36 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 17:15:27 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!str || !to_find)
-		return (NULL);
 	if (to_find[0] == '\0')
 		return ((char *)str);
 	i = 0;
@@ -33,3 +31,9 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 	}
 	return (NULL);
 }
+// int main(void)
+// {
+// 	 printf("|%s|\n",strnstr("amineben",NULL,5));
+// 	printf("|%s|\n",ft_strnstr("mainebub",NULL,5));
+// 	return 0;
+// }
