@@ -6,23 +6,21 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 19:24:46 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/26 20:14:17 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 09:01:32 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
-        return (NULL);
-
-    while (lst->next)
-    {
-        lst = lst->next;
-    }
-    return (lst);
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
 
 // int main(void)
