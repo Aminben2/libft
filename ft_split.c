@@ -6,101 +6,106 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:51:54 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 18:10:08 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 18:59:14 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**free_strs(char **strs)
+int	count_words(const char *s, char sep)
 {
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-	free(strs);
-	return (NULL);
-}
-
-static int	ft_count_words(const char *str, char c)
-{
-	int	i;
 	int	count;
+	int	i;
 
-	i = 0;
 	count = 0;
-	while (str[i])
+	i = 0;
+	while (s[i])
 	{
-		while (str[i] && str[i] == c)
+		if (s[i] == sep)
 			i++;
-		if (str[i])
+		else
+		{
 			count++;
-		while (str[i] && str[i] != c)
-			i++;
+			while (s[i] && s[i] != sep)
+				i++;
+		}
 	}
 	return (count);
 }
 
-static char	**ft_handle_split(char **strs, char *str, char c)
+static char	**free_lst(char **lst)
 {
-	int		i;
-	int		j;
-	int		start;
-	char	*word;
+	int	i;
 
 	i = 0;
-	j = 0;
-	while (str[i])
+	while (lst[i])
 	{
-		while (str[i] && str[i] == c)
-			i++;
-		if (str[i])
-			start = i;
-		while (str[i] && str[i] != c)
-			i++;
-		if (i > start)
+		free(lst[i]);
+		i++;
+	}
+	free(lst);
+	return (NULL);
+}
+
+size_t	next_sep(const char *s1, char sep)
+{
+	size_t	len;
+
+	len = 0;
+	while (*s1 && *s1 != sep)
+	{
+		len++;
+		s1++;
+	}
+	return (len);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**lst;
+	size_t	len_word;
+	int		lst_index;
+
+	if (!s)
+		return (NULL);
+	lst = (char **) malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!lst)
+		return (NULL);
+	lst_index = 0;
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
 		{
-			word = ft_substr(str, start, i - start);
-			if (!word)
-				return (free_strs(strs));
-			strs[j++] = word;
+			len_word = next_sep(s, c);
+			lst[lst_index] = ft_substr(s, 0, len_word);
+			if (!lst[lst_index++])
+				return (free_lst(lst));
+			s += len_word;
 		}
 	}
-	strs[j] = NULL;
-	return (strs);
+	lst[lst_index] = NULL;
+	return (lst);
 }
 
-char	**ft_split(const char *str, char c)
-{
-	int		word_count;
-	char	**strs;
+// int	main(void)
+// {
+// 	char	*string;
+// 	char	**s;
 
-	if (!str)
-		return (NULL);
-	word_count = ft_count_words(str, c);
-	strs = malloc((word_count + 1) * sizeof(char *));
-	if (!strs)
-		return (NULL);
-	return (ft_handle_split(strs, (char *)str, c));
-}
-
-int main(void)
-{
-    char **s = ft_split("          ",' ');
-    if (s == NULL)
-    {
-        printf("NULL\n");
-    }
-    else
-    {
-        for (size_t i = 0; s[i] != NULL; i++)
-        {
-            printf("-%s\n", s[i]);
-        }
-    }
-    return (0);
-}
+// 	string = "      split       this for   me  !       ";
+// 	s = ft_split(string, ' ');
+// 	if (s == NULL)
+// 	{
+// 		printf("NULL\n");
+// 	}
+// 	else
+// 	{
+// 		for (size_t i = 0; s[i] != NULL; i++)
+// 		{
+// 			printf("-%s\n", s[i]);
+// 		}
+// 	}
+// 	return (0);
+// }
