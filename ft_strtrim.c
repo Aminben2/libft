@@ -6,66 +6,51 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:56:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 14:47:51 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 19:59:04 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_haschar(const char *str, char c)
+static int	ft_check_set(char const c, char const *set)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (set[i] != '\0')
 	{
-		if (str[i] == c)
+		if (set[i] == c)
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static int	ft_mark_end(const char *str, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	str_len;
-	size_t	index;
+	size_t	size;
+	char	*ptr;
 
-	str_len = ft_strlen(str);
-	index = str_len - 1;
-	while (index >= 0)
-	{
-		if (ft_haschar(set, str[index]))
-			index--;
-		else
-			return (index);
-	}
-	return (str_len - 1);
-}
-
-static int	ft_mark_start(const char *str, const char *set)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_haschar(set, str[i]))
-			i++;
-		else
-			return (i);
-	}
-	return (0);
-}
-
-char	*ft_strtrim(const char *str, const char *set)
-{
-	int	start;
-	int	end;
-
-	if (!str || !set)
+	if (!s1 || !set)
 		return (NULL);
-	start = ft_mark_start(str, set);
-	end = ft_mark_end(str, set);
-	return (ft_substr(str, start, end - start + 1));
+	while (s1)
+	{
+		if (ft_check_set(((char)*s1), set) == 1)
+			s1++;
+		else
+			break ;
+	}
+	size = ft_strlen(s1);
+	while (size != 0)
+	{
+		if (ft_check_set(s1[size - 1], set) == 1)
+			size--;
+		else
+			break ;
+	}
+	ptr = (char *)malloc(size + 1);
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, (char *)s1, size + 1);
+	return (ptr);
 }

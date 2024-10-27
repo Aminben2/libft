@@ -6,13 +6,11 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:32:34 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 17:05:05 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 20:44:17 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -23,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	len = ft_strlen(s);
 	while (i <= len)
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 			return ((char *)&s[i]);
 		i++;
 	}
@@ -34,4 +32,14 @@ char	*ft_strchr(const char *s, int c)
 // 	printf("|%s|\n",strchr(NULL,'\0'));
 // 	printf("|%s|\n",ft_strchr(NULL,'\0'));
 // 	return 0;
+// }
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	while (*s != (char)c)
+// 	{
+// 		if (!*s)
+// 			return (0);
+// 		s++;
+// 	}
+// 	return ((char *)s);
 // }
