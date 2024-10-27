@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 20:28:12 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 09:21:06 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/10/27 09:32:14 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 //             t_list *node2 = ft_lstnew("oma");
 //                 t_list *node3 = ft_lstnew("mohamed");
 //     head->next = node1;
-//     head->next->next = node2;
-//     head->next->next->next = node3;
+//     node1->next = node2;
+//     node2->next = node3;
 
 //     t_list **lst = &head;
 //     ft_lstadd_back(lst,ft_lstnew("test"));
