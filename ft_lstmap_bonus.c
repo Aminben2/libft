@@ -6,33 +6,38 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:07:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 15:58:50 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/01 18:26:41 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new;
-	t_list	*node;
+	t_list	*head;
+	void	*ptr;
+	t_list	*new_node;
 
-	if (!del || !f || !lst)
+	if (!lst || !f || !del)
 		return (NULL);
-	new = NULL;
+	head = NULL;
 	while (lst)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
+		ptr = f(lst->content);
+		new_node = ft_lstnew(ptr);
+		if (!new_node)
 		{
-			ft_lstclear(&new, del);
+			del(ptr);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new, node);
+		ft_lstadd_back(&head, new_node);
 		lst = lst->next;
 	}
-	return (new);
+	return (head);
 }
+
 
 // void	*to_upper(void *str)
 // {

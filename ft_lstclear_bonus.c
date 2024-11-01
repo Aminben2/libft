@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 09:52:47 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 14:14:38 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:44:46 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		tmp = *lst;
-		ft_lstdelone(*lst, del);
 		*lst = tmp->next;
+		ft_lstdelone(tmp, del);
 	}
 }
 

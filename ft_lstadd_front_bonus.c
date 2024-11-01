@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 17:49:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 15:58:38 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/01 17:45:47 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (!lst || !new)
-		return ;
+	if (!new)
+		return;
+	if (!*lst)
+	{
+		*lst = new;
+		return;
+	}
 	new->next = *lst;
+	*lst = new;
 }
