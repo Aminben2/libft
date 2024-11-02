@@ -6,12 +6,11 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 12:07:40 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/11/01 18:26:41 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/02 11:46:05 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -37,7 +36,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (head);
 }
-
 
 // void	*to_upper(void *str)
 // {
