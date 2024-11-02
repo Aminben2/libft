@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 20:28:12 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/11/02 11:44:38 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:03:20 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last_node;
 
-	if (!new)
+	if (!new || !lst)
 		return ;
 	if (*lst == NULL)
 	{

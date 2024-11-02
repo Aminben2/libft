@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 18:37:31 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 09:01:44 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/02 19:43:25 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_lstsize(t_list *lst)
 
 // int main(void)
 // {
-//     t_list *node = ft_lstnew("amine");
+//     t_list *node = ft_lstnew("amine");***p 
 //     t_list *node1 = ft_lstnew("ben");
 //     t_list *node2 = ft_lstnew("yasine");
 
