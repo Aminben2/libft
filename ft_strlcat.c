@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 20:31:30 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 19:27:27 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/06 10:23:19 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 	size_t	src_len;
 	size_t	j;
 
+	if (dsize == 0)
+		return (ft_strlen(src));
 	src_len = ft_strlen(src);
 	dest_len = ft_strlen(dst);
 	if (dsize <= dest_len)

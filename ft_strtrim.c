@@ -6,13 +6,13 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:56:20 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 19:59:04 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:30:21 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_check_set(char const c, char const *set)
+static int	ft_check_set(const char c, const char *set)
 {
 	int	i;
 
@@ -26,9 +26,9 @@ static int	ft_check_set(char const c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	size_t	size;
+	size_t	len;
 	char	*ptr;
 
 	if (!s1 || !set)
@@ -40,17 +40,17 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 			break ;
 	}
-	size = ft_strlen(s1);
-	while (size != 0)
+	len = ft_strlen(s1);
+	while (len > 0)
 	{
-		if (ft_check_set(s1[size - 1], set) == 1)
-			size--;
+		if (ft_check_set(s1[len - 1], set) == 1)
+			len--;
 		else
 			break ;
 	}
-	ptr = (char *)malloc(size + 1);
+	ptr = (char *)malloc(len + 1);
 	if (!ptr)
 		return (NULL);
-	ft_strlcpy(ptr, (char *)s1, size + 1);
+	ft_strlcpy(ptr, s1, len + 1);
 	return (ptr);
 }

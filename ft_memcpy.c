@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 21:48:49 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/11/02 19:40:56 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:11:00 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	new_dest = (unsigned char *)dest;
 	new_src = (unsigned char *)src;
+	if (new_dest == new_src)
+		return (dest);
 	if (!new_src && !new_dest)
-		return (NULL);
+		return (NULL); 
 	while (i < n)
 	{
 		new_dest[i] = new_src[i];

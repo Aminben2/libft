@@ -6,13 +6,13 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 17:51:54 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 18:59:14 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/08 14:50:53 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *s, char sep)
+static int	count_words(const char *s, char sep)
 {
 	int	count;
 	int	i;
@@ -47,7 +47,7 @@ static char	**free_lst(char **lst)
 	return (NULL);
 }
 
-size_t	next_sep(const char *s1, char sep)
+static size_t	word_length(const char *s1, char sep)
 {
 	size_t	len;
 
@@ -62,31 +62,31 @@ size_t	next_sep(const char *s1, char sep)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**lst;
+	char	**strs;
 	size_t	len_word;
-	int		lst_index;
+	int		i;
 
 	if (!s)
 		return (NULL);
-	lst = (char **) malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!lst)
+	strs = (char **) malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!strs)
 		return (NULL);
-	lst_index = 0;
+	i = 0;
 	while (*s)
 	{
 		if (*s == c)
 			s++;
 		else
 		{
-			len_word = next_sep(s, c);
-			lst[lst_index] = ft_substr(s, 0, len_word);
-			if (!lst[lst_index++])
-				return (free_lst(lst));
+			len_word = word_length(s, c);
+			strs[i] = ft_substr(s, 0, len_word);
+			if (!strs[i++])
+				return (free_lst(strs));
 			s += len_word;
 		}
 	}
-	lst[lst_index] = NULL;
-	return (lst);
+	strs[i] = NULL;
+	return (strs);
 }
 
 // int	main(void)

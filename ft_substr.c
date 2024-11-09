@@ -6,7 +6,7 @@
 /*   By: mbenomar <mbenomar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:49:00 by mbenomar          #+#    #+#             */
-/*   Updated: 2024/10/27 14:48:35 by mbenomar         ###   ########.fr       */
+/*   Updated: 2024/11/03 11:16:22 by mbenomar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (i < len && s[start])
+	while (i < len)
 		str[i++] = s[start++];
 	str[i] = '\0';
 	return (str);
